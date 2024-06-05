@@ -1,0 +1,60 @@
+cell = tetrahedron
+element = VectorElement("Lagrange", cell, 1)
+element1 = FiniteElement("Lagrange", cell, 1)
+
+u = TrialFunction(element)
+v = TestFunction(element)
+f = Constant(cell)
+
+mu1    = Constant(cell)
+lmbda1 = Constant(cell)
+mu2    = Constant(cell)
+lmbda2 = Constant(cell)
+mu3    = Constant(cell)
+lmbda3 = Constant(cell) 
+mu4    = Constant(cell)
+lmbda4 = Constant(cell) 
+mu5    = Constant(cell)
+lmbda5 = Constant(cell) 
+mu6    = Constant(cell)
+lmbda6 = Constant(cell) 
+
+
+def epsilon(v):
+    return 0.5*(grad(v) + grad(v).T)
+
+def sigma1(v):
+    return 2.0*mu1*epsilon(v) + lmbda1*tr(epsilon(v))*Identity(v.cell().d)
+
+def sigma2(v):
+    return 2.0*mu2*epsilon(v) + lmbda2*tr(epsilon(v))*Identity(v.cell().d)
+
+def sigma3(v):
+    return 2.0*mu3*epsilon(v) + lmbda3*tr(epsilon(v))*Identity(v.cell().d)
+
+def sigma4(v):
+    return 2.0*mu4*epsilon(v) + lmbda4*tr(epsilon(v))*Identity(v.cell().d)
+
+def sigma5(v):
+    return 2.0*mu5*epsilon(v) + lmbda5*tr(epsilon(v))*Identity(v.cell().d)
+
+def sigma6(v):
+    return 2.0*mu6*epsilon(v) + lmbda6*tr(epsilon(v))*Identity(v.cell().d)
+
+n = FacetNormal(cell)
+
+a = inner(sigma1(u), epsilon(v))*dx(10001) + inner(sigma2(u), epsilon(v))*dx(10002) + inner(sigma3(u), epsilon(v))*dx(10003) + inner(sigma4(u), epsilon(v))*dx(10004) + inner(sigma5(u), epsilon(v))*dx(10005) + inner(sigma6(u), epsilon(v))*dx(10006)
+L = f*inner(n,v)*ds(1)
+
+element_s = TensorElement("Discontinuous Lagrange", cell, 0)
+s = TrialFunction(element_s)
+w      = TestFunction(element_s)
+disp   = Coefficient(element)
+
+a_s = inner(s, w)*dx(10001) + inner(s, w)*dx(10002) + inner(s, w)*dx(10003) + inner(s, w)*dx(10004) + inner(s, w)*dx(10005) + inner(s, w)*dx(10006)
+L_s = inner(sigma1(disp), w)*dx(10001) + inner(sigma2(disp), w)*dx(10002) + inner(sigma3(disp), w)*dx(10003) + inner(sigma3(disp), w)*dx(10004) + inner(sigma3(disp), w)*dx(10005) + inner(sigma3(disp), w)*dx(10006)
+
+a_e = inner(s, w)*dx(10001) + inner(s, w)*dx(10002) + inner(s, w)*dx(10003) + inner(s, w)*dx(10004) + inner(s, w)*dx(10005) + inner(s, w)*dx(10006)
+L_e = inner(epsilon(disp), w)*dx(10001) + inner(epsilon(disp), w)*dx(10002) + inner(epsilon(disp), w)*dx(10003) + inner(epsilon(disp), w)*dx(10004) + inner(epsilon(disp), w)*dx(10005) + inner(epsilon(disp), w)*dx(10006)
+
+forms = [a, L, a_s, L_s, a_e, L_e]

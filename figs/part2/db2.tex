@@ -1,0 +1,145 @@
+\newcommand{\scaler}{0.75}
+\newcommand{\plytawidth}{10cm*\scaler}
+\newcommand{\plytalength}{5cm*\scaler}
+\newcommand{\plytaheight}{5cm*\scaler}
+\newcommand{\railcoor}{1cm*\scaler}
+\newcommand{\railwidth}{0.4cm*\scaler}
+\newcommand{\railheight}{0.6cm*\scaler}
+\newcommand{\xots}{0.5cm*\scaler}
+\newcommand{\eots}{0.15cm*\scaler}
+\newcommand{\diagox}{0.1cm*\scaler}
+\newcommand{\pressx}{1cm*\scaler}
+\newcommand{\pressy}{0.25cm*\scaler}
+\newcommand{\diagx}{0.15cm*\scaler}
+\newcommand{\diagy}{0.15cm*\scaler}
+\newcommand{\stalplytax}{0.2cm*\scaler}
+\newcommand{\stalplytay}{1.5cm*\scaler}
+\newcommand{\arrowlength}{0.6cm*\scaler}
+\newcommand{\trianglex}{0.3cm*\scaler}
+\newcommand{\triangley}{0.33cm*\scaler}
+\begin{tikzpicture}
+  \coordinate (A) at (0, 0);
+  \coordinate (B) at (0, \plytalength);
+  \coordinate (C) at (\plytawidth, 0);
+  \coordinate (D) at (\plytawidth, \plytalength);
+   
+  \draw [ultra thick] (A) -- (B) -- (D) -- (C) -- (A);
+  
+  \coordinate (R11) at (\railcoor - \railwidth/2, 0);
+  \coordinate (R12) at (\railcoor - \railwidth/2, -\railheight);
+  \coordinate (R13) at (\railcoor + \railwidth/2, -\railheight);
+  \coordinate (R14) at (\railcoor + \railwidth/2, 0);
+  
+  \coordinate (R21) at (\plytawidth - \railcoor - \railwidth/2, 0);
+  \coordinate (R22) at (\plytawidth - \railcoor - \railwidth/2, -\railheight);
+  \coordinate (R23) at (\plytawidth - \railcoor + \railwidth/2, -\railheight);
+  \coordinate (R24) at (\plytawidth - \railcoor + \railwidth/2, 0);
+
+  \coordinate (P11) at (\plytawidth/2 - \pressx/2, \plytalength);
+  \coordinate (P12) at (\plytawidth/2 - \pressx/2, \plytalength+\pressy);
+  \coordinate (P13) at (\plytawidth/2 + \pressx/2, \plytalength+\pressy);
+  \coordinate (P14) at (\plytawidth/2 + \pressx/2, \plytalength);  
+  
+  
+  \draw [ultra thick, fill=gray] (R11) -- (R12) -- (R13) -- (R14) --(R11) (R21) -- (R22) -- (R23) -- (R24) -- (R21) (P11) -- (P12) -- (P13) -- (P14) -- (P11);  
+  
+  \coordinate (AR1) at (\plytawidth/2, \plytalength+\pressy + \arrowlength);
+  \coordinate (AR2) at (\plytawidth/2, \plytalength+\pressy);
+  \coordinate (AR3) at (\plytawidth/2 + \triangley/4, \plytalength+\pressy + \trianglex);
+  \coordinate (AR4) at (\plytawidth/2 - \triangley/4, \plytalength+\pressy + \trianglex);
+  \coordinate (AR5) at (\plytawidth/2, \plytalength + \pressy + \trianglex);
+  
+  \draw [fill] (AR2) -- (AR3) -- (AR4) -- (AR2);
+  \draw [ultra thick] (AR1) -- (AR5);
+  
+  \coordinate (D11-) at (\railcoor - \railwidth/2 - \diagx/3, -\railheight - \diagy);
+  \coordinate (D11+) at (\railcoor - \railwidth/2 + 2*\diagx/3, -\railheight);
+  \coordinate (D12-) at (\railcoor - \railwidth/2 + 2*\diagx/3, -\railheight - \diagy);
+  \coordinate (D12+) at (\railcoor - \railwidth/2 + 5*\diagx/3, -\railheight);
+  \coordinate (D13-) at (\railcoor - \railwidth/2 + 5*\diagx/3, -\railheight - \diagy);
+  \coordinate (D13+) at (\railcoor - \railwidth/2 + 8*\diagx/3, -\railheight);
+  
+  \draw [ultra thick] (D11-) -- (D11+) (D12-) -- (D12+) (D13-) -- (D13+);
+ 
+  \coordinate (D21-) at (\plytawidth - \railcoor - \railwidth/2 - \diagx/3, -\railheight - \diagy);
+  \coordinate (D21+) at (\plytawidth - \railcoor - \railwidth/2 + 2*\diagx/3, -\railheight);
+  \coordinate (D22-) at (\plytawidth - \railcoor - \railwidth/2 + 2*\diagx/3, -\railheight - \diagy);
+  \coordinate (D22+) at (\plytawidth - \railcoor - \railwidth/2 + 5*\diagx/3, -\railheight);
+  \coordinate (D23-) at (\plytawidth - \railcoor - \railwidth/2 + 5*\diagx/3, -\railheight - \diagy);
+  \coordinate (D23+) at (\plytawidth - \railcoor - \railwidth/2 + 8*\diagx/3, -\railheight);
+  
+  \draw [ultra thick] (D21-) -- (D21+) (D22-) -- (D22+) (D23-) -- (D23+); 
+  
+  \coordinate (M31) at ( - \eots, -2*\xots);
+  \coordinate (M32) at (\railcoor + \railwidth/2 + \eots, -2*\xots);
+  \coordinate (M31-) at (0, -2*\xots - \eots);
+  \coordinate (M31+) at (0, -\eots);
+  \coordinate (M32-) at (\railcoor + \railwidth/2, -2*\xots - \eots);
+  \coordinate (M32+) at (\railcoor + \railwidth/2, -\railheight - \eots);
+  \coordinate (M33-) at (\railcoor - \railwidth/2, -2*\xots - \eots);
+  \coordinate (M33+) at (\railcoor - \railwidth/2, -\railheight - \eots);
+  
+  \coordinate (D31+) at (\diagox, -2*\xots + \diagox);
+  \coordinate (D31-) at (- \diagox, -2*\xots - \diagox);
+  \coordinate (D32+) at (\railcoor + \railwidth/2 + \diagox, -2*\xots + \diagox);
+  \coordinate (D32-) at (\railcoor + \railwidth/2 - \diagox, -2*\xots - \diagox); 
+  \coordinate (D33+) at (\railcoor - \railwidth/2 + \diagox, -2*\xots + \diagox);
+  \coordinate (D33-) at (\railcoor - \railwidth/2 - \diagox, -2*\xots - \diagox);
+  
+  \draw [thin] (M31) -- (M32) (M31-) -- (M31+) (M32-) -- (M32+) (M33-) -- (M33+);
+  \draw [ultra thick] (D31-) -- (D31+) (D32-) -- (D32+) (D33-) -- (D33+);
+  \node [below] at (\railcoor/2 - \railwidth/4, -2*\xots) {\small{80}}; 
+  \node [below] at (\railcoor, -2*\xots) {\small{40}}; 
+  
+  \coordinate (M11) at ( - \eots, \plytalength +2*\xots);
+  \coordinate (M12) at (\plytawidth/2 + \pressx/2 + \eots, \plytalength +2*\xots);
+  \coordinate (M11-) at (0, \plytalength + 2*\xots + \eots);
+  \coordinate (M11+) at (0, \plytalength + \eots);
+  \coordinate (M12-) at (\plytawidth/2 + \pressx/2, \plytalength+2*\xots + \eots);
+  \coordinate (M12+) at (\plytawidth/2 + \pressx/2, \plytalength + \pressy + \eots);
+  \coordinate (M13-) at (\plytawidth/2 - \pressx/2, \plytalength+2*\xots + \eots);
+  \coordinate (M13+) at (\plytawidth/2 - \pressx/2, \plytalength + \pressy + \eots);
+  
+  \coordinate (D11+) at (\diagox,\plytalength +2*\xots + \diagox);
+  \coordinate (D11-) at (- \diagox,\plytalength +2*\xots - \diagox);
+  \coordinate (D12+) at (\plytawidth/2 + \pressx/2 + \diagox,\plytalength +2*\xots + \diagox);
+  \coordinate (D12-) at (\plytawidth/2 + \pressx/2 - \diagox,\plytalength +2*\xots - \diagox);
+  \coordinate (D13+) at (\plytawidth/2 - \pressx/2 + \diagox,\plytalength +2*\xots + \diagox);
+  \coordinate (D13-) at (\plytawidth/2 - \pressx/2 - \diagox,\plytalength +2*\xots - \diagox);
+  
+  \draw [thin] (M11) -- (M12) (M11-) -- (M11+) (M12-) -- (M12+) (M13-) -- (M13+);
+  \draw [ultra thick] (D11-) -- (D11+) (D12-) -- (D12+) (D13-) -- (D13+);
+  \node [above] at (\plytawidth/4 - \pressx/4, \plytalength +2*\xots) {\small{450}}; 
+  \node [above] at (\plytawidth/2, \plytalength +2*\xots) {\small{100}};
+  
+  \coordinate (M41) at (\plytawidth + 2*\xots, \eots);
+  \coordinate (M42) at (\plytawidth + 2*\xots, - \eots - \railheight);
+  \coordinate (M41-) at (\plytawidth + \eots, 0);
+  \coordinate (M41+) at (\plytawidth + 2*\xots + \eots, 0);
+  \coordinate (M42-) at (\plytawidth - \railcoor + \railwidth/2  + \eots, -\railheight);
+  \coordinate (M42+) at (\plytawidth + 2*\xots + \eots, -\railheight);
+  
+  \coordinate (D41+) at (\plytawidth + 2*\xots + \diagox,  - \diagox);
+  \coordinate (D41-) at (\plytawidth + 2*\xots - \diagox, \diagox);
+  \coordinate (D42+) at (\plytawidth + 2*\xots + \diagox, -\railheight - \diagox);
+  \coordinate (D42-) at (\plytawidth + 2*\xots - \diagox, -\railheight + \diagox); 
+  
+  \draw [thin] (M41) -- node [right] {\small{60}} (M42) (M41-) -- (M41+) (M42-) -- (M42+);
+  \draw [ultra thick] (D41-) -- (D41+) (D42-) -- (D42+); 
+  
+  \coordinate (M51) at (\plytawidth + 2*\xots,\plytalength - \eots);
+  \coordinate (M52) at (\plytawidth + 2*\xots,\plytalength + \eots + \pressy);
+  \coordinate (M51-) at (\plytawidth + \eots, \plytalength);
+  \coordinate (M51+) at (\plytawidth + 2*\xots + \eots, \plytalength);
+  \coordinate (M52-) at (\plytawidth/2 + \pressx/2 + \eots,\plytalength + \pressy);
+  \coordinate (M52+) at (\plytawidth + 2*\xots + \eots,\plytalength  + \pressy);
+  
+  \coordinate (D51+) at (\plytawidth + 2*\xots + \diagox, \plytalength - \diagox);
+  \coordinate (D51-) at (\plytawidth + 2*\xots - \diagox, \plytalength + \diagox);
+  \coordinate (D52+) at (\plytawidth + 2*\xots + \diagox, \plytalength  + \pressy - \diagox);
+  \coordinate (D52-) at (\plytawidth + 2*\xots - \diagox, \plytalength  + \pressy + \diagox); 
+  
+  \draw [thin] (M51) -- node [right] {\small{25}} (M52) (M51-) -- (M51+) (M52-) -- (M52+);
+  \draw [ultra thick] (D51-) -- (D51+) (D52-) -- (D52+); 
+  
+\end{tikzpicture}

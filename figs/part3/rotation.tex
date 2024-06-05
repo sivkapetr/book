@@ -1,0 +1,71 @@
+\newcommand{\scaler}{0.6}
+\newcommand{\brw}{7cm*\scaler}
+\newcommand{\brh}{3cm*\scaler}
+\newcommand{\brd}{1cm*\scaler}
+\newcommand{\brx}{0.5cm*\scaler}
+\newcommand{\ax}{2.5cm*\scaler}
+\newcommand{\sq}{0.5cm*\scaler}
+
+\newcommand{\dott}{3cm*\scaler}
+
+\newcommand{\rad}{6cm*\scaler}
+
+\begin{tikzpicture}
+  \coordinate (PL1) at (\brx+\brw/2, \brd);
+  \coordinate (PL2) at (\brx+\brw/2, \brd + \brh);
+  \coordinate (PL3) at (\brx-\brw/2, \brd + \brh);
+  \coordinate (PL4) at (\brx-\brw/2,\brd);
+  
+  \draw [thick] (PL1) -- (PL2) -- (PL3) -- (PL4) -- (PL1);
+
+  \draw[black] (0,0) circle (\rad);
+  \draw[black!50] (0,0) circle (\rad*0.15);
+  \draw[black!50] (0,0) circle (\rad*0.30);
+  \draw[black!50] (0,0) circle (\rad*0.45);
+  \draw[black!50] (0,0) circle (\rad*0.60);
+  \draw[black!50] (0,0) circle (\rad*0.75);
+  \draw[black!50] (0,0) circle (\rad*0.86);
+  \draw[black!50] (0,0) circle (\rad*0.88);
+  \draw[black!50] (0,0) circle (\rad*0.90);
+  \draw[black!50] (0,0) circle (\rad*0.92);
+  \draw[black!50] (0,0) circle (\rad*0.94);
+  \draw[black!50] (0,0) circle (\rad*0.96);
+  \draw[black!50] (0,0) circle (\rad*0.98);
+  
+  \draw[fill = black] (0,0) circle (\rad*0.03) (\rad*0.1, 0) node [above right] {$\alpha$};
+  
+  \coordinate (xx00) at (0, 0);
+  \coordinate (xx10) at (\ax, 0);
+  \coordinate (xx01) at (0, \ax);
+  
+  \coordinate (sq00) at (0, 0);
+  \coordinate (sq10) at (\sq, 0);
+  \coordinate (sq01) at (0, \sq);
+  \coordinate (sq11) at (\sq, \sq);
+  
+  \draw[red]
+  ([shift={(0:0.9cm*\scaler)}]0, 0) arc (0:45:0.9cm*\scaler);
+  
+  \draw[->, very thick] (xx00) -- (xx01) node [above] {$x_2$};
+  \draw[->, very thick] (xx00) -- (xx10) node [right] {$x_1$};
+  
+  \draw (sq00) -- (sq01) -- (sq11) -- (sq10) -- (sq00); 
+  
+  \coordinate (rt00) at (\dott, \dott);
+  \coordinate (rt10) at (\dott + \ax/1.41, \dott + \ax/1.41);
+  \coordinate (rt01) at (\dott - \ax/1.41, \dott + \ax/1.41);
+  
+  \draw (xx00) -- (rt00);
+  
+  \draw[->, very thick] (rt00) -- (rt01) node [above left] {$t$};
+  \draw[->, very thick] (rt00) -- (rt10) node [above right] {$r$};
+  
+  \coordinate (sqq00) at (\dott, \dott);
+  \coordinate (sqq10) at (\dott+\sq/1.41, \dott+\sq/1.41);
+  \coordinate (sqq11) at (\dott, \dott + \sq*2/1.41);
+  \coordinate (sqq01) at (\dott-\sq/1.41, \dott+\sq/1.41);
+  
+  \draw (sqq00) -- (sqq01) -- (sqq11) -- (sqq10) -- (sqq00);
+  \draw[fill = black] (\dott,\dott) circle (\rad*0.03);
+
+\end{tikzpicture}

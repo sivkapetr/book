@@ -1,0 +1,107 @@
+\newcommand{\scaler}{1.5}
+\newcommand{\brw}{7cm*\scaler}
+\newcommand{\brh}{3cm*\scaler}
+\newcommand{\brd}{1cm*\scaler}
+\newcommand{\brx}{0.5cm*\scaler}
+\newcommand{\ax}{2.5cm*\scaler}
+\newcommand{\sq}{0.5cm*\scaler}
+
+\newcommand{\dott}{3cm*\scaler}
+
+\newcommand{\rad}{6cm*\scaler}
+
+\begin{tikzpicture}
+  \draw[fill=yellow!20!white]
+  ([shift={(-40:1.2cm*\scaler)}]-1.3*\scaler,-0.4*\scaler) arc (-40:40:1.2cm*\scaler)
+  --
+  ([shift={(40:1.2cm*\scaler)}]-1.5*\scaler,-0.4*\scaler) arc (40:-40:1.2cm*\scaler)
+  -- cycle;
+
+\draw[draw=yellow!20!white, fill=yellow!20!white]
+  ([shift={(40:1.2cm*\scaler)}]-1.5*\scaler,-0.4*\scaler) -- + (0.3*\scaler, -0.1) -- + (0.2*\scaler, 0.4*\scaler) -- + (0, 0.4*\scaler) -- + (0, 0);
+
+\draw
+  ([shift={(40:1.2cm*\scaler)}]-1.5*\scaler,-0.4*\scaler) -- + (0, 0.4*\scaler);
+
+  \draw[fill=yellow!20!white, draw=yellow!20!white] ([shift={(0:1.2cm*\scaler)}]-1.3*\scaler,0) -- + (0, -0.4*\scaler) -- +(-0.1*\scaler, -0.4*\scaler) -- +(-0.1*\scaler, 0) -- +(0, 0);
+  
+    \draw ([shift={(0:1.2cm*\scaler)}]-1.3*\scaler,0) -- + (0, -0.43*\scaler);
+
+  \draw[fill=yellow!20!white]
+  ([shift={(-40:1.2cm*\scaler)}]-1.3*\scaler,0) arc (-40:40:1.2cm*\scaler)
+  --
+  ([shift={(40:1.2cm*\scaler)}]-1.5*\scaler,0) arc (40:-40:1.2cm*\scaler) 
+  -- cycle;
+
+  \draw[fill=yellow!20!white]
+  ([shift={(-40:1.2cm*\scaler)}]-1.3*\scaler,0) -- + (0, -0.4*\scaler) -- +(-0.2*\scaler, -0.4*\scaler) -- + (-0.2*\scaler, 0);
+ 
+ 
+
+    \draw[fill=yellow!20!white]
+  ([shift={(-40:1cm*\scaler)}]0,-0.27*\scaler) arc (-40:40:1cm*\scaler)
+  --
+  ([shift={(40:1.4cm*\scaler)}]0,-0.27*\scaler) arc (40:-40:1.4cm*\scaler)
+  -- cycle;
+  
+  \draw[fill=yellow!20!white] ([shift={(-40:1cm*\scaler)}]0,-0.27*\scaler) -- +(0, 0.17*\scaler) -- ([shift={(-40:1.4cm*\scaler)}]0,-0.1*\scaler) -- ([shift={(-40:1.4cm*\scaler)}]0,-0.27*\scaler);
+
+  \draw[draw=yellow!20!white, fill=yellow!20!white] ([shift={(40:1cm*\scaler)}]0,-0.27*\scaler) -- +(0, 0.17*\scaler) -- ([shift={(40:1.4cm*\scaler)}]0,-0.1*\scaler) -- ([shift={(40:1.4cm*\scaler)}]0,-0.4*\scaler) -- ([shift={(40:1cm*\scaler)}]0,-0.27*\scaler); 
+  
+  \draw ([shift={(40:1cm*\scaler)}]0,-0.27*\scaler) -- +(0, 0.17*\scaler);
+  
+    \draw[fill=yellow!20!white]
+  ([shift={(-40:1cm*\scaler)}]0,-0.1*\scaler) arc (-40:40:1cm*\scaler)
+  --
+  ([shift={(40:1.4cm*\scaler)}]0,-0.1*\scaler) arc (40:-40:1.4cm*\scaler)
+  -- cycle;
+
+
+
+   \draw[fill=yellow!20!white]
+  ([shift={(-145:0.35cm*\scaler)}]2.5*\scaler, 0.85*\scaler) arc (-145:-35:0.35cm*\scaler)
+  --
+  ([shift={(-35:0.35cm*\scaler)}]2.5*\scaler,-0.85*\scaler) arc (-35:-145:0.35cm*\scaler)
+  -- cycle;
+ 
+   \draw[draw=yellow!20!white,fill=yellow!20!white]
+  ([shift={(-145:0.35cm*\scaler)}]2.5*\scaler, 0.844*\scaler) arc (-145:-35:0.35cm*\scaler)
+  --
+  ([shift={(-30:0.25cm*\scaler)}]2.5*\scaler, 0.9*\scaler) arc (-30:-150:0.25cm*\scaler)
+  -- cycle;  
+ 
+   \draw[fill=yellow!20!white]
+  ([shift={(-150:0.25cm*\scaler)}]2.5*\scaler, 0.9*\scaler) arc (-150:-30:0.25cm*\scaler)
+  --
+  ([shift={(-30:0.25cm*\scaler)}]2.5*\scaler,-0.8*\scaler) arc (-30:-150:0.25cm*\scaler)
+  -- cycle;
+  
+  \draw ([shift={(-145:0.35cm*\scaler)}]2.5*\scaler, 0.85*\scaler) -- ([shift={(-150:0.25cm*\scaler)}]2.5*\scaler, 0.9*\scaler);
+  
+    \draw ([shift={(-35:0.35cm*\scaler)}]2.5*\scaler, 0.85*\scaler) -- ([shift={(-30:0.25cm*\scaler)}]2.5*\scaler, 0.9*\scaler);
+
+   \draw[fill=yellow!20!white]
+  ([shift={(-30:0.25cm*\scaler)}]2.5*\scaler,-0.8*\scaler) arc (-30:-150:0.25cm*\scaler)
+  --
+  ([shift={(-145:0.35cm*\scaler)}]2.5*\scaler,-0.85*\scaler) arc (-145:-35:0.35cm*\scaler)
+  -- cycle;  
+  
+  
+  \draw[fill=yellow!20!white] (3.7*\scaler, 0.6*\scaler) -- (3.7*\scaler, -1.1*\scaler) -- (4.1*\scaler, -1.2*\scaler) -- (4.1*\scaler, 0.7*\scaler) -- cycle;
+  
+  \draw[draw =yellow!20!white, fill=yellow!20!white] (3.7*\scaler, 0.55*\scaler) -- (3.63*\scaler, 0.7*\scaler) -- (4.03*\scaler, 0.8*\scaler) -- (4.1*\scaler, 0.7*\scaler) -- cycle;  
+  
+  \draw (4.03*\scaler, 0.8*\scaler) -- (4.1*\scaler, 0.7*\scaler);
+  
+  \draw[fill=yellow!20!white] (3.63*\scaler, 0.7*\scaler) -- (3.77*\scaler, -1.0*\scaler) -- (4.17*\scaler, -1.1*\scaler) -- (4.03*\scaler, 0.8*\scaler) -- cycle;
+  
+    \draw[fill=yellow!20!white] (3.7*\scaler, -1.1*\scaler) -- (3.77*\scaler, -1.0*\scaler) -- (4.17*\scaler, -1.1*\scaler) -- (4.1*\scaler, -1.2*\scaler) -- cycle;
+
+
+  \node at (-0.5*\scaler/1.5, -2.1*\scaler/1.5) {$a$};
+  \node at (1.63*\scaler/1.5, -2.1*\scaler/1.5) {$b$};
+  \node at (3.76*\scaler/1.5, -2.1*\scaler/1.5) {$c$};
+  \node at (5.89*\scaler/1.5, -2.1*\scaler/1.5) {$d$};
+
+
+\end{tikzpicture}

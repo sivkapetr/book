@@ -1,0 +1,161 @@
+\begin{thebibliography}{10}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\language\csname l@#1\endcsname\fi}
+\ifx\undefined\url\def\url#1{{\small #1}}\else\fi
+\ifx\undefined\BibUrl\def\BibUrl#1{\url{#1}}\else\fi
+\ifx\undefined\BibAnnote\long\def\BibAnnote#1{}\else\fi
+\ifx\undefined\BibEmph\def\BibEmph#1{\emph{#1}}\else\fi
+
+\bibitem{Barber}
+\selectlanguageifdefined{english}
+\BibEmph{Barber,~J.~R.}. Elasticity~/ J.~R.~Barber. ---
+\newblock Springer, 1992.
+
+\bibitem{borja}
+\selectlanguageifdefined{english}
+\BibEmph{Borja,~R.~I.} Plasticity: modeling \& computation~/ R.~I.~Borja. ---
+\newblock Springer Science \& Business Media, 2013.
+
+\bibitem{brezzi}
+\selectlanguageifdefined{english}
+\BibEmph{Brezzi,~F.} Mixed and hybrid finite element methods~/ F.~Brezzi, M.~Fortin. ---
+\newblock Springer Science \& Business Media, 2012.
+
+\bibitem{chengporo}
+\selectlanguageifdefined{english}
+\BibEmph{Cheng,~A.~H.~-D.} Poroelasticity~/ A.~H.~-D.~Cheng. ---
+\newblock Springer, 2016.
+
+\bibitem{souza}
+\selectlanguageifdefined{english}
+\BibEmph{de~Souza~Neto,~E.~A.} Computational methods for plasticity: theory and applications~/ E.~A.~de~Souza~Neto, D.~Peric, D.~R.~J.~Owen. ---
+\newblock John Wiley \& Sons, 2011.
+
+\bibitem{Ding}
+\selectlanguageifdefined{english}
+\BibEmph{Ding,~H.}. Elasticity of transversely isotropic materials~/ H.~Ding, W.~Chen, L.~Zhang. ---
+\newblock Springer Science \& Business Media, 2006.
+
+\bibitem{logg2012automated}
+\selectlanguageifdefined{english}
+\BibEmph{Logg,~A.} Automated Solution of Differential Equations by the Finite
+  Element Method: The FEniCS Book~/ A.~Logg, K.A.~Mardal, G.~Wells. ---
+\newblock Springer, 2012.
+
+\bibitem{nowacki}
+\selectlanguageifdefined{english}
+\BibEmph{Nowacki,~W.} Dynamic problems of thermoelasticity~/ W.~Nowacki. ---
+\newblock Springer Science \& Business Media, 1975.
+
+\bibitem{Simo}
+\selectlanguageifdefined{english}
+\BibEmph{Simo,~J.~C.} Computational inelasticity~/ J.~C.~Simo, T.~J.~R.~Hughes. ---
+\newblock Springer Science \& Business Media, 2006.
+
+\bibitem{smith2013programming}
+\selectlanguageifdefined{english}
+\BibEmph{Smith,~I.M.} Programming the Finite Element Method~/ I.M.~Smith,\linebreak
+  D.V.~Griffiths, L.~Margetts. ---
+\newblock Wiley, 2013.
+
+\bibitem{Strang1986}
+\selectlanguageifdefined{english}
+\BibEmph{Strang,~G.} Introduction to applied mathematics~/ G.~Strang. ---
+\newblock Wellesley-Cambridge Press Wellesley, MA, 1986.
+
+\bibitem{Voigt}
+\selectlanguageifdefined{english}
+\BibEmph{Voigt,~W.} Lehrbuch der kristallphysik (mit ausschluss der kristalloptik)~/ W.~Voigt. ---
+\newblock Springer-Verlag, 2014.
+
+\bibitem{wangporo}
+\selectlanguageifdefined{english}
+\BibEmph{Wang,~H.~F.} Theory of linear poroelasticity~/ H.~F.~Wang. ---
+\newblock Princeton University Press Princeton, 2000.
+
+\bibitem{zienkiewicz}
+\selectlanguageifdefined{english}
+\BibEmph{Zienkiewicz~O.~C.} The finite element method~/ O.~C.~Zienkiewicz, R.~L.~Taylor, O.~C.~Zienkiewicz et al.. ---
+\newblock McGraw-hill London, 1977.
+
+
+\bibitem{amenzade}
+\selectlanguageifdefined{russian}
+\BibEmph{Амензаде,~Ю.~А.}. Теория упругости~/ Ю.~А.~Амензаде. ---
+\newblock Москва: Высшая школа, 1976.
+
+\bibitem{ashkenazi}
+\selectlanguageifdefined{russian}
+\BibEmph{Ашкенази,~Е.~К.}. Анизотропия конструкционных материалов~/\linebreak Е.~К.~Ашкенази, Э.~В.~Ганов. ---
+\newblock Ленинград: Машиностроение, 1980.
+
+\bibitem{Vabischevich1993}
+\selectlanguageifdefined{russian}
+\BibEmph{Вабищевич,~П.~Н.} Численное моделирование~/ П.~Н.~Вабищевич. ---
+\newblock Москва: Издательство Московского книверситета, 1993.
+
+\bibitem{ilin}
+\selectlanguageifdefined{russian}
+\BibEmph{Ильин,~В.~П.}. Методы и технологии конечных элементов~/ В.~П.~Ильин. ---
+\newblock ИВМиМГ СО РАН, 2007.
+
+\bibitem{carslou}
+\selectlanguageifdefined{russian}
+\BibEmph{Карслоу,~Г.}. Теплопроводность твердых тел:пер. с англ.~/ Г.~Карслоу, Д.~Егер. ---
+\newblock Наука, 1964.
+
+
+\bibitem{Landau}
+\selectlanguageifdefined{russian}
+\BibEmph{Ландау,~Л.~Д.}. Теория упругости~/ Л.~Д.~Ландау, Е.~М.~Лифшиц. ---
+\newblock Наука, 1965.
+
+\bibitem{lehnickiy}
+\selectlanguageifdefined{russian}
+\BibEmph{Лехницкий,~С.~Г.}. Теория упругости анизотропного тела~/ С.~Г.~Лехницкий. ---
+\newblock Наука, 1977.
+
+\bibitem{Lurye}
+\selectlanguageifdefined{russian}
+\BibEmph{Лурье,~А.~И.}. Нелинейная теория упругости~/ А.~И.~Лурье. ---
+\newblock Наука, 1980.
+
+\bibitem{Marchuk}
+\selectlanguageifdefined{russian}
+\BibEmph{Марчук,~Г.~И.}. Методы вычислительной математики~/ Г.~И.~Марчук. ---
+\newblock Наука, 1980.
+
+\bibitem{Rabotnov}
+\selectlanguageifdefined{russian}
+\BibEmph{Работнов,~Ю.~Н.}. Механика деформируемого твердого тела~/ Ю.~Н.~Работнов. ---
+\newblock Наука, 1988.
+
+\bibitem{SamarskiiVab}
+\selectlanguageifdefined{russian}
+\BibEmph{Самарский,~А.~А.}. Вычислительная теплопередача~/ А.~А.~Самарский, П.~Н.~Вабищевич. ---
+\newblock Либроком, 2009.
+
+\bibitem{SamarskiiMihailov2005}
+\selectlanguageifdefined{russian}
+\BibEmph{Самарский,~А.~А.} Математическое моделирование. Идеи. Методы.
+  Примеры~/ А.~А.~Самарский, А.~П.~Михайлов. ---
+\newblock Москва: Физматлит, 2005.
+
+\bibitem{sedov1970}
+\selectlanguageifdefined{russian}
+\BibEmph{Седов,~Л.~И.} Механика сплошной среды~/ Л.~И.~Седов. ---
+\newblock Наука, 1970.
+
+\bibitem{CC1}
+\selectlanguageifdefined{russian}
+\BibEmph{Страуструп,~Бьерн}. Язык программирования {С++}~/ Бьерн~Страуструп.
+  ---
+\newblock Москва: Бином, 2011.
+
+\bibitem{Han}
+\selectlanguageifdefined{russian}
+\BibEmph{Хан,~Х.}. Теория упругости: Основы линейной теории и ее применения~/ Х.~Хан. ---
+\newblock Мир, 1988.
+
+\end{thebibliography}

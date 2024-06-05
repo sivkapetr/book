@@ -1,0 +1,135 @@
+\documentclass{cspmB}
+
+\usepackage[paperwidth=148mm, paperheight=210mm, top=2.2cm,bottom=1.4cm,outer=1.6cm, inner=1.4cm]{geometry}
+\usepackage{mathtext}        % если нужны русские буквы в формулах
+\usepackage[T1,T2A,TS1]{fontenc} % Поддержка русских букв
+\usepackage[english, russian]{babel} % Языки: русский, английский
+\usepackage[cp1251]{inputenc}
+\usepackage{pscyr} % Нормальные шрифты
+
+\usepackage[dvips]{color}
+\usepackage{graphicx}
+\usepackage{makeidx}
+\usepackage[active]{srcltx}
+\usepackage{indentfirst}
+%\usepackage[geometry]{ifsym}
+\usepackage{boxedminipage}
+\usepackage{amssymb,amsmath}
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage{bm}  
+\usepackage{upquote}  % для апострофов в листингах
+\usepackage{enumitem}
+\setlist{nosep}
+\setlist[enumerate]{label=\arabic*.}
+%\usepackage{lmodern}
+\usepackage[table]{xcolor}
+\usepackage{booktabs}
+\usepackage{placeins}
+\usepackage[justification=centering]{caption}
+
+\usepackage[unicode]{hyperref}
+\hypersetup{
+  colorlinks=true
+  bookmarks=true
+  citecolor=green
+  linkcolor=red
+  heperindex=true
+}
+
+\graphicspath{{figs/}}
+
+\usepackage[final,                     % Показ меток (\label). Если установить опцию
+color,notref,notcite]{showkeys}         % final, то метки показываться не будут
+                                        % color - метки выводятся серым цветом
+                                        % notref, notcite - не выводятся ссылки
+
+\usepackage{fancyvrb}
+\fvset{fontsize=\small}
+\RecustomVerbatimEnvironment{verbatim}{Verbatim}{}
+
+\parindent = 2em
+\setlength{\parskip}{0em}
+\renewcommand{\baselinestretch}{1} 
+\renewcommand{\arraystretch}{1.2}
+
+
+\usepackage{color}
+\definecolor{gr}{rgb}{0.97,.97,0.97}
+\definecolor{gr1}{rgb}{0.9,.9,0.9}
+\definecolor{gr2}{rgb}{0.9,.5,0.}
+% организация листингов
+\usepackage{listings}
+\lstloadlanguages{[ANSI]C,[ANSI]C++,Python}
+\lstset{
+	language=[ANSI]{C},
+	keywordstyle=\bfseries\ttfamily\color[rgb]{0,0,1},
+	identifierstyle=\ttfamily,
+	commentstyle=\color[rgb]{0.133,0.545,0.133},
+	stringstyle=\ttfamily\color[rgb]{0.627,0.126,0.941},
+	showstringspaces=false,
+	basicstyle=\footnotesize,
+	numberstyle=\footnotesize,
+	tabsize=4,
+	breaklines=true,
+	prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+	breakatwhitespace=false,
+	aboveskip={1.5\baselineskip},
+  	columns=fixed,
+  	upquote=false,
+  	extendedchars=true,
+ 	frame=single,
+	backgroundcolor=\color{gr},
+	rulecolor=\color{gr1}
+    literate={~} {$\sim$}{1}
+}
+    
+\renewcommand{\lstlistingname}{Листинг}
+\renewcommand\listcontribname{Авторы}
+ 
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{tikz}
+\tikzstyle{line}=[draw]
+\usepackage{pgfplots}
+\usetikzlibrary{er}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.markings}
+\newcommand{\grad}{\mathop{\rm grad}\nolimits}
+\renewcommand{\div}{\mathop{\rm div}\nolimits}
+\newcommand{\const}{\mathop{\rm const}\nolimits}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+
+\newcommand{\tr}{\mathop{\rm tr}\nolimits}
+\newcommand{\trial}{\mathop{\rm trial}\nolimits}
+\newcommand{\air}{\mathop{\rm air}\nolimits}
+\renewcommand{\tan}{\mathop{\rm tan}\nolimits}
+
+\definecolor{verbatimbg}{rgb}{0.95,0.95,0.95}
+\definecolor{listingbg}{rgb}{0.98,0.98,0.98}
+\definecolor{captionbg}{rgb}{0.37,0.37,0.37}
+\definecolor{captiontext}{rgb}{1,1,1}
+\arrayrulecolor{captionbg}
+\setlength{\arrayrulewidth}{1pt}
+
+
+% Общие опции
+\setcounter{secnumdepth}{1}
+\newtheorem{exer}{Упражнение}[chapter]
+\newtheorem{problem}{Задача}[chapter]
+
+\newenvironment{console}{\verbatim}{\endverbatim}
+
+\mdfsetup{skipabove=0.5em,skipbelow=0.5em}
+
+\usepackage{caption}% подписи к рисункам в русской типографской традиции
+\DeclareCaptionLabelFormat{gostfigure}{\small{ Рисунок #2}}
+\captionsetup[figure]{justification=centering,labelformat=gostfigure}
+
+\usepackage{float}
+\floatstyle{plaintop}
+\restylefloat{table}
+\floatstyle{plain}
+\restylefloat{figure}
+\usepackage[labelsep=endash]{caption}
+

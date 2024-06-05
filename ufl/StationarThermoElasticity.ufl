@@ -1,0 +1,77 @@
+
+cell = tetrahedron
+PT = FiniteElement("CG", cell, 1)
+PU = VectorElement("CG", cell, 2)
+PS = TensorElement("CG", cell, 1)
+
+# Cuprum
+muCu    = Constant(cell)
+lmbdaCu = Constant(cell)
+kCu     = Constant(cell)
+betaCu  = Constant(cell)
+
+# Ceramic
+muCe    = Constant(cell)
+lmbdaCe = Constant(cell)
+kCe     = Constant(cell)
+betaCe  = Constant(cell)
+
+# BC for T
+alphaAir = Constant(cell)
+alphaMe  = Constant(cell)
+Tin      = Constant(cell)
+TAir     = Constant(cell)
+THot     = Constant(cell)
+TMe1     = Constant(cell)
+TMe2     = Constant(cell)
+
+def epsilon(v):
+    return 0.5*(grad(v) + grad(v).T)
+
+def sigma(v, mu, lmbda, T, beta):
+    return 2.0*mu*epsilon(v) + lmbda*tr(epsilon(v))*Identity(v.cell().d) - (lmbda + 2*mu/3) * beta*T*Identity(v.cell().d)
+
+
+# TEMPERATURE
+T  = TrialFunction(PT)
+q  = TestFunction(PT)
+
+F_T = inner(kCe*grad(T), grad(q))*dx(100001)\
+    + inner(kCu*grad(T), grad(q))*dx(100002)\
+    + alphaAir*(T-THot)*q*ds(1)\
+    + alphaMe*(T-TMe1)*q*ds(2)\
+    + alphaMe*(T-TMe2)*q*ds(5)\
+    + alphaAir*(T-TAir)*q*ds(3)\
+    + alphaMe*(T-TMe1)*q*ds(4)
+
+
+
+# DISPLACEMENT
+u = TrialFunction(PU)
+v = TestFunction(PU)
+
+Temp = Coefficient(PT)
+
+F_u = inner(sigma(u, muCe, lmbdaCe, Temp, betaCe), epsilon(v))*dx(100001)\
+    + inner(sigma(u, muCu, lmbdaCu, Temp, betaCu), epsilon(v))*dx(100002) 
+
+
+# STRESS
+stress = TrialFunction(PS)
+w      = TestFunction(PS)
+
+disp_s = Coefficient(PU)
+Temp_s = Coefficient(PT)
+
+F_s = inner(stress, w)*dx(100001) + inner(stress, w)*dx(100002)\
+    - inner(sigma(disp_s, muCe, lmbdaCe, Temp_s, betaCe), w)*dx(100001)\
+    - inner(sigma(disp_s, muCu, lmbdaCu, Temp_s, betaCu), w)*dx(100002)
+
+
+a_T = lhs(F_T)
+L_T = rhs(F_T)
+a_u = lhs(F_u)
+L_u = rhs(F_u)
+a_s = lhs(F_s)
+L_s = rhs(F_s)
+forms = [a_T, L_T, a_u, L_u, a_s, L_s]

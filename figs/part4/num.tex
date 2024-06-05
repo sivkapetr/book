@@ -1,0 +1,31 @@
+\newcommand{\xall}{72}
+\newcommand{\sqware}{9.7}
+\newcommand{\yall}{130}
+\newcommand{\ya}{1.5}
+\newcommand{\yb}{19.6}
+\newcommand{\yc}{9.8}
+\newcommand{\yd}{29.4}
+\newcommand{\ye}{30}
+\newcommand{\ysq}{6.15}
+\newcommand{\xsq}{6.9}
+\newcommand{\xa}{1.5}
+
+\newcommand{\dista}{4.0}
+\newcommand{\distb}{1.0}
+\newcommand{\distc}{3.0}
+\newcommand{\ots}{1.0}
+
+\begin{tikzpicture}[scale=0.08]
+\draw[fill=gray!30!white, color = gray!30!white] (0, 0) -- (0,\xall) -- (\yall,\xall) -- (\yall,0)--cycle; 
+
+\draw[ultra thick, color= white, fill = white] (\ya, \xall-\xa) circle (0.5)  (\ya+\yb, \xall-\xa) circle (1.0) (\ya+\yb+\yc, \xall-\xa) circle (0.5) (\ya+\yb+\yc+\yd, \xall-\xa) circle (0.5) (\ye, \xa) circle (1.0); 
+
+\draw[ultra thick, color= white, fill = white] (\yall - \ya, \xall-\xa) circle (0.5) (\yall - \ya-\yb, \xall-\xa) circle (1.0) (\yall - \ya-\yb-\yc, \xall-\xa) circle (0.5) (\yall - \ya-\yb-\yc-\yd, \xall-\xa) circle (0.5) (\yall - \ye, \xa) circle (1.0); 
+
+\node [below] at (\ya, \xall-\xa) {1};
+\node [below] at (\ya+\yb, \xall-\xa) {2};
+\node [below] at (\ya+\yb+\yc, \xall-\xa) {3};
+\node [below] at (\ya+\yb+\yc+\yd, \xall-\xa) {4};
+\node [above] at (\ye, \xa) {5};
+
+\end{tikzpicture}

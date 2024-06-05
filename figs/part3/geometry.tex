@@ -1,0 +1,41 @@
+\newcommand{\scaler}{0.24}
+\newcommand{\brw}{15.6cm*\scaler}
+\newcommand{\brh}{5.4cm*\scaler}
+\newcommand{\brf}{4cm*\scaler}
+
+
+\newcommand{\radd}{0.3cm*\scaler}
+
+\newcommand{\dx}{20cm*\scaler}
+\newcommand{\dy}{10cm*\scaler}
+
+\begin{tikzpicture}
+  \coordinate (A1) at (\brw/2, 0);
+  \coordinate (A2) at (\brw/2, \brh);
+  \coordinate (A3) at (-\brw/2,\brh);
+  \coordinate (A4) at (-\brw/2, 0);
+  
+  \draw [thick] (A1) -- (A2) -- (A3) -- (A4) -- (A1);
+
+  \coordinate (B1) at (\brw/2 + \dx, \dy);
+  \coordinate (B2) at (\brw/2 + \dx, \brh + \dy);
+  \coordinate (B3) at (-\brw/2 + \dx,\brh + \dy);
+  \coordinate (B4) at (-\brw/2 + \dx, \dy);
+  
+  \draw [thick] (B1) -- (B2) -- (B3) (A1) -- (B1) (A2) -- (B2) (A3) -- (B3);
+  \draw [thick, dashed] (B1) -- (B4) -- (B3) (A4) -- (B4);
+  
+  \draw[fill = black] (0, \brh/2) circle (\radd) node [right] {3};
+  \draw[fill = black] (\dx, \brh/2 + \dy) circle (\radd) node [left] {1};
+  \draw[fill = black] (\dx - \brw/2, \brh/2 + \dy) circle (\radd) node [right] {2};
+  
+  \coordinate (C1) at (\brw/2 + \dx, \dy);
+  \coordinate (C2) at (\brw/2 + \dx, \brf + \dy);
+  \coordinate (C3) at (\brw/2 + \dx -\brf,\dy);
+  \coordinate (C4) at (\brw/2 + \dx - \brf*20/22.36, \dy- \brf*10/22.36);  
+
+  \draw[->, very thick] (C1) -- (C2) node [right] {$x_2$};
+  \draw[->, very thick] (C1) -- (C3) node [above] {$x_1$};
+  \draw[->, very thick] (C1) -- (C4) node [below] {$x_3$};
+ 
+\end{tikzpicture}

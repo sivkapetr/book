@@ -1,0 +1,59 @@
+\newcommand{\scaler}{0.3}
+\newcommand{\brw}{15.6cm*\scaler}
+\newcommand{\brh}{5.4cm*\scaler}
+\newcommand{\brx}{2cm*\scaler}
+\newcommand{\dx}{1cm*\scaler}
+
+\newcommand{\dott}{3cm*\scaler}
+\newcommand{\unl}{3cm*\scaler}
+
+\newcommand{\radv}{11.5cm*\scaler}
+\newcommand{\radn}{13cm*\scaler}
+
+\begin{tikzpicture}
+  \coordinate (PL1) at (\brx+\brw/2, 0);
+  \coordinate (PL2) at (\brx+\brw/2, \brh);
+  \coordinate (PL3) at (\brx-\brw/2, \brh);
+  \coordinate (PL4) at (\brx-\brw/2, 0);
+  
+  \draw [thick] (PL1) -- (PL2) -- (PL3) -- (PL4) -- (PL1);
+
+  \draw[black, thick] (0,0) circle (\radv);
+  \draw[black, thick] (0,0) circle (\radn);
+  
+  \draw[black!50] (0,0) circle (\radv*0.15);
+  \draw[black!50] (0,0) circle (\radv*0.30);
+  \draw[black!50] (0,0) circle (\radv*0.45);
+  \draw[black!50] (0,0) circle (\radv*0.60);
+  \draw[black!50] (0,0) circle (\radv*0.75);
+  
+  \draw[fill = black] (0, 0) circle (\radv*0.02);
+  
+
+  \coordinate (dx0) at (0, 0);
+  \coordinate (dx1) at (\brx, \brh);  
+  \coordinate (ddx0) at (0, -\dx);
+  \coordinate (ddx1) at (\brx, -\dx);
+  
+  \draw (dx0) -- (ddx0)  -- node [below] {$20$mm} (ddx1) -- (dx1);
+  
+  \coordinate (dddx0) at (-\brx, -\dx);
+  \coordinate (dddx1) at (2*\brx, -\dx);  
+  
+  \draw[thick,->] (dddx0) -- (ddx0);
+  \draw[thick,->] (dddx1) -- (ddx1);
+  
+  \coordinate (rv0) at (\radv/1.41, \radv/1.41); 
+  \coordinate (rv1) at (\radv/1.41 + \dott, \radv/1.41 + \dott); 
+  \coordinate (rv2) at (\radv/1.41 + \dott + \unl, \radv/1.41 + \dott); 
+  
+  \draw[thick] (rv0) -- (rv1) -- node [above] {$R_1 = 115$mm} (rv2);
+  
+  \coordinate (rn0) at (-\radn/1.41, \radn/1.41); 
+  \coordinate (rn1) at (-\radn/1.41 - \dott, \radn/1.41 + \dott); 
+  \coordinate (rn2) at (-\radn/1.41 - \dott - \unl, \radn/1.41 + \dott); 
+  
+  \draw[thick] (rn0) -- (rn1) -- node [above] {$R_2 = 130$mm} (rn2);
+
+
+\end{tikzpicture}

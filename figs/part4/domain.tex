@@ -1,0 +1,56 @@
+\newcommand{\xall}{72}
+\newcommand{\sqware}{9.7}
+\newcommand{\yall}{130}
+\newcommand{\ya}{1.5}
+\newcommand{\yb}{19.6}
+\newcommand{\yc}{9.8}
+\newcommand{\yd}{29.4}
+\newcommand{\ye}{30}
+\newcommand{\ysq}{6.15}
+\newcommand{\xsq}{6.9}
+\newcommand{\xa}{1.5}
+
+\newcommand{\dista}{4.0}
+\newcommand{\distb}{1.0}
+\newcommand{\distc}{3.0}
+\newcommand{\ots}{1.0}
+
+\begin{tikzpicture}[scale=0.1]
+\foreach \x in {0,...,12}{
+	\draw[ultra thick] (\xsq, \ysq+\sqware*\x) -- (\xsq+6*\sqware, \ysq+\sqware*\x);}
+\foreach \x in {0,...,6}{
+	\draw[ultra thick] (\xsq+\sqware*\x, \ysq) -- (\xsq+\sqware*\x, \ysq+\sqware*12);}
+
+\draw[ultra thick] (0, 0) -- (\xall,0) -- (\xall,\yall) -- (0,\yall)--cycle; 
+
+\draw[ultra thick] (\xa, \ya) circle (0.5) (\xa, \ya+\yb) circle (1.0) (\xa, \ya+\yb+\yc) circle (0.5) (\xa, \ya+\yb+\yc+\yd) circle (0.5) (\xall-\xa, \ye) circle (1.0); 
+
+\draw[ultra thick] (\xa, \yall - \ya) circle (0.5) (\xa, \yall - \ya-\yb) circle (1.0) (\xa, \yall - \ya-\yb-\yc) circle (0.5) (\xa, \yall - \ya-\yb-\yc-\yd) circle (0.5) (\xall-\xa, \yall - \ye) circle (1.0); 
+
+
+\draw (-\distb, \yall + \dista) -- node [above] {\small{72 mm}} (\xall+\distb, \yall + \dista);
+\draw (0, \yall) -- (0, \yall + \dista + \distb) (\xall, \yall) -- (\xall, \yall + \dista + \distb);
+\draw[ultra thick] (-\ots, \ots + \yall + \dista) -- (\ots, -\ots + \yall + \dista) (-\ots+\xall, \ots + \yall + \dista) -- (\ots+\xall, -\ots + \yall + \dista);
+
+\draw (-\distb+\xsq+5*\sqware, \ysq+\sqware*12 + \distc) -- node [above] {\small{9.7 mm}} (\sqware+\distb+\xsq+5*\sqware, \ysq+\sqware*12 + \distc);
+\draw (\xsq+5*\sqware, \ysq+\sqware*12) -- (\xsq+5*\sqware, \ysq+\sqware*12 + \distc + \distb) (\xsq+6*\sqware, \ysq+\sqware*12) -- (\xsq+6*\sqware, \ysq+\sqware*12 + \distc + \distb);
+\draw[ultra thick] (-\ots+\xsq+5*\sqware, \ots + \ysq+\sqware*12 + \distc) -- (\ots+\xsq+5*\sqware, -\ots + \ysq+\sqware*12 + \distc) (-\ots+\xsq+6*\sqware, \ots + \distc + \ysq+\sqware*12) -- (\ots+\xsq+6*\sqware, -\ots + \ysq+\sqware*12 + \distc);
+
+\draw (-\dista, -\distb) -- node [rotate=90, above] {\small{130 mm}} (-\dista, \yall+\distb);
+\draw (0, 0) -- (-\dista - \distb, 0) (0, \yall) -- (-\dista-\distb, \yall);
+\draw[ultra thick] (-\ots - \dista, \ots) -- (\ots - \dista, -\ots) (-\ots-\dista, \ots + \yall) -- (\ots-\dista, -\ots + \yall);
+
+\draw (\dista+\xa, -\distb+\yall-\ya-\yb-\yc-\yd) -- (\dista+\xa, \yall+\distb);
+\draw (\xa, \yall-\ya-\yb-\yc-\yd) -- (\dista+\xa + \distb, \yall-\ya-\yb-\yc-\yd) (\xa, \yall-\ya) -- (\dista+\xa + \distb, \yall-\ya) (\xa, \yall-\ya-\yb) -- (\dista+\xa + \distb, \yall-\ya-\yb) (\xa, \yall-\ya-\yb-\yc) -- (\dista+\xa + \distb, \yall-\ya-\yb-\yc) (\xa, \yall) -- (\dista+\xa+\distb, \yall);
+\draw[ultra thick] (-\ots + \dista+\xa, \ots+\yall-\ya-\yb-\yc-\yd) -- (\ots + \dista+\xa, -\ots+\yall-\ya-\yb-\yc-\yd) (-\ots + \dista+\xa, \ots+\yall-\ya) -- (\ots + \dista+\xa, -\ots+\yall-\ya) (-\ots + \dista+\xa, \ots+\yall-\ya-\yb) -- (\ots + \dista+\xa, -\ots+\yall-\ya-\yb) (-\ots + \dista+\xa, \ots+\yall-\ya-\yb-\yc) -- (\ots + \dista+\xa, -\ots+\yall-\ya-\yb-\yc) (-\ots+\dista+\xa, \ots + \yall) -- (\ots+\dista+\xa, -\ots + \yall);
+
+\draw (\xall+\dista, \yall-\ye-\distb) -- node [rotate=90, below] {\small{30 mm}} (\xall+\dista, \yall+\distb);
+\draw (\xall-\xa, \yall-\ye) -- (\xall+\dista + \distb, \yall-\ye) (\xall-\xa, \yall) -- (\xall+\dista+\distb, \yall);
+\draw[ultra thick] (\xall-\ots + \dista, \yall-\ye+\ots) -- (\xall+\ots + \dista, \yall-\ye-\ots) (\xall-\ots+\dista, \ots + \yall) -- (\xall+\ots+\dista, -\ots + \yall);
+
+  \node [rotate=90, above] at (\xa+\dista, \yall-\ya-\yb-\yc-\yd/2) {\small{29.4 mm}};
+  \node [rotate=90, above] at (\xa+\dista, \yall-\ya-\yb-\yc/2) {\small{9.8mm}};
+  \node [rotate=90, above] at (\xa+\dista, \yall-\ya-\yb/2) {\small{19.6 mm}};
+  \node [right] at (\xa+\dista, \yall-\ya) {\small{1.5 mm}};
+
+\end{tikzpicture}

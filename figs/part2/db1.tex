@@ -1,0 +1,200 @@
+\newcommand{\scaler}{0.75}
+\newcommand{\plytawidth}{10cm*\scaler}
+\newcommand{\plytalength}{1cm*\scaler}
+\newcommand{\plytaheight}{5cm*\scaler}
+\newcommand{\hots}{0.36cm*\scaler}
+\newcommand{\xots}{0.25cm*\scaler}
+\newcommand{\eots}{0.18cm*\scaler}
+\newcommand{\wots}{0.31cm*\scaler}
+\newcommand{\vots}{0.24cm*\scaler}
+\newcommand{\diagox}{0.1cm*\scaler}
+\newcommand{\armaturax}{1.25cm*\scaler}
+\newcommand{\armaturay}{1.79cm*\scaler}
+\newcommand{\prutdistx}{1.5cm*\scaler}
+\newcommand{\prutdisty}{1.45cm*\scaler}
+\begin{tikzpicture}
+  \coordinate (PL1) at (0, 0);
+  \coordinate (PL2) at (\plytawidth, 0);
+  \coordinate (PL3) at (\plytawidth, \plytaheight);
+  \coordinate (PL4) at (0,\plytaheight);
+  
+  \draw [thick] (PL1) -- (PL2) -- (PL3) -- (PL4) -- (PL1);
+ 
+  \coordinate (AE1) at (\xots, \hots);
+  \coordinate (AE2) at (\plytawidth - \xots, \hots);
+  \coordinate (AE3) at (\plytawidth - \xots, \plytaheight - \xots);
+  \coordinate (AE4) at (\xots, \plytaheight - \xots); 
+ 
+  \draw [line width = 0.06cm*\scaler] (AE2) -- (AE3) -- (AE4) -- (AE1);
+  \draw [line width = 0.11cm*\scaler] (AE1) -- (AE2);
+  
+  \coordinate (YY1-) at (\armaturax, \hots);
+  \coordinate (YY1+) at (\armaturax, \plytaheight - \eots);
+  \coordinate (YY2-) at (\prutdistx + \armaturax, \hots);
+  \coordinate (YY2+) at (\prutdistx + \armaturax, \plytaheight - \eots);
+  \coordinate (YY3-) at (2 * \prutdistx + \armaturax, \hots);
+  \coordinate (YY3+) at (2 * \prutdistx + \armaturax, \plytaheight - \eots);
+  \coordinate (YY4-) at (3 * \prutdistx + \armaturax, \hots);
+  \coordinate (YY4+) at (3 * \prutdistx + \armaturax, \plytaheight - \eots);
+  \coordinate (YY5-) at (4 * \prutdistx + \armaturax, \hots);
+  \coordinate (YY5+) at (4 * \prutdistx + \armaturax, \plytaheight - \eots);
+  \coordinate (YY6-) at (5 * \prutdistx + \armaturax, \hots);
+  \coordinate (YY6+) at (5 * \prutdistx + \armaturax, \plytaheight - \eots);
+  
+  
+ \draw [line width = 0.04cm*\scaler] (YY1-) -- (YY1+) (YY2-) -- (YY2+) (YY3-) -- (YY3+) (YY4-) -- (YY4+) (YY5-) -- (YY5+) (YY6-) -- (YY6+);
+ 
+  \coordinate (XX1-) at (\eots, \plytaheight - \eots - \prutdisty);
+  \coordinate (XX1+) at (\plytawidth - \eots, \plytaheight - \eots - \prutdisty); 
+  \coordinate (XX2-) at (\eots, \plytaheight - \eots - 2 * \prutdisty);
+  \coordinate (XX2+) at (\plytawidth - \eots, \plytaheight - \eots - 2 * \prutdisty); 
+  \coordinate (XX3-) at (\xots, 2 * \hots);
+  \coordinate (XX3+) at (\plytawidth - \xots, 2 * \hots); 
+  
+ \draw [line width = 0.04cm*\scaler] (XX1-) -- (XX1+) (XX2-) -- (XX2+);
+ \draw [line width = 0.11cm*\scaler] (XX3-) -- (XX3+);
+ 
+  \coordinate (M21-) at (0, \plytaheight);
+  \coordinate (M21+) at (0, \plytaheight + \xots + \eots);
+  \coordinate (M22-) at (\xots, \plytaheight);
+  \coordinate (M22+) at (\xots, \plytaheight + \xots + \eots);
+  \coordinate (M23-) at (\armaturax, \plytaheight);
+  \coordinate (M23+) at (\armaturax, \plytaheight + \xots + \eots);
+  \coordinate (M24-) at (\armaturax + \prutdistx, \plytaheight);
+  \coordinate (M24+) at (\armaturax + \prutdistx, \plytaheight + \xots + \eots);
+  \coordinate (M25-) at (- \eots, \plytaheight + \xots);
+  \coordinate (M25+) at (\armaturax + \prutdistx + \eots, \plytaheight + \xots);
+
+
+  \coordinate (D21-) at (- \diagox, \plytaheight + \xots - \diagox);
+  \coordinate (D21+) at (\diagox, \plytaheight + \xots + \diagox);
+  \coordinate (D22-) at (\xots - \diagox, \plytaheight + \xots - \diagox);
+  \coordinate (D22+) at (\xots + \diagox, \plytaheight + \xots + \diagox);
+  \coordinate (D23-) at (\armaturax - \diagox, \plytaheight + \xots - \diagox);
+  \coordinate (D23+) at (\armaturax + \diagox, \plytaheight + \xots + \diagox);
+  \coordinate (D24-) at (\armaturax + \prutdistx - \diagox, \plytaheight + \xots - \diagox);
+  \coordinate (D24+) at (\armaturax + \prutdistx+ \diagox, \plytaheight + \xots + \diagox);
+  
+  \draw [thin] (M21-) -- (M21+) (M22-) -- (M22+) (M23-) -- (M23+) (M24-) -- (M24+) (M25-) -- (M25+);
+  \draw [ultra thick] (D21-) -- (D21+) (D22-) -- (D22+) (D23-) -- (D23+) (D24-) -- (D24+);
+  \node [above] at (\xots/2, \plytaheight + \xots) {\small{25}};
+  \node [above] at (\armaturax/2, \plytaheight + \xots) {\small{100}};
+  \node [above] at (\armaturax + \prutdistx/2, \plytaheight + \xots) {\small{150}};
+  
+  \coordinate (M11-) at (- \xots - \eots, 0);
+  \coordinate (M11+) at (0, 0);
+  \coordinate (M12-) at (- \xots - \eots, \hots);
+  \coordinate (M12+) at (0, \hots);
+  \coordinate (M13-) at (- \xots - \eots, 2*\hots);
+  \coordinate (M13+) at (0, 2*\hots);
+  \coordinate (M14-) at (- \xots - \eots, \plytaheight - \eots - 2 * \prutdisty);
+  \coordinate (M14+) at (0, \plytaheight - \eots - 2 * \prutdisty);
+  \coordinate (M15-) at (- \xots - \eots, \plytaheight - \eots - \prutdisty);
+  \coordinate (M15+) at (0, \plytaheight - \eots - \prutdisty);
+  \coordinate (M16-) at (- \xots, -\eots);
+  \coordinate (M16+) at (- \xots, \plytaheight - \eots - \prutdisty + \eots);
+
+  \coordinate (D11-) at (- \xots + \diagox, - \diagox);
+  \coordinate (D11+) at (- \xots - \diagox, \diagox);
+  \coordinate (D12-) at (- \xots + \diagox, \hots - \diagox);
+  \coordinate (D12+) at (- \xots - \diagox, \hots + \diagox);
+  \coordinate (D13-) at (- \xots + \diagox, 2*\hots - \diagox);
+  \coordinate (D13+) at (- \xots - \diagox, 2*\hots + \diagox);
+  \coordinate (D14-) at (- \xots + \diagox, \plytaheight - \eots - 2 * \prutdisty - \diagox);
+  \coordinate (D14+) at (- \xots - \diagox, \plytaheight - \eots - 2 * \prutdisty + \diagox);
+  \coordinate (D15-) at (- \xots + \diagox, \plytaheight - \eots - \prutdisty - \diagox);
+  \coordinate (D15+) at (- \xots - \diagox, \plytaheight - \eots - \prutdisty + \diagox);
+  
+  \draw [thin] (M11-) -- (M11+) (M12-) -- (M12+) (M13-) -- (M13+) (M14-) -- (M14+) (M15-) -- (M15+) (M16-) -- (M16+);
+  \draw [ultra thick] (D11-) -- (D11+) (D12-) -- (D12+) (D13-) -- (D13+) (D14-) -- (D14+) (D15-) -- (D15+);  
+  \node [rotate = 90, above] at (-\xots, \hots/2.1) {\small{36}};
+  \node [rotate = 90, above] at (-\xots, \hots + \hots/1.9) {\small{36}};
+  \node [rotate = 90, above] at (-\xots, \plytaheight/2 - \eots/2 - \prutdisty + \hots) {\small{107}};
+  \node [rotate = 90, above] at (-\xots, \plytaheight - \eots - 3/2*\prutdisty) {\small{145}};
+
+  
+  \coordinate (M31) at ( - \eots, -2*\xots);
+  \coordinate (M32) at (\plytawidth + \eots, -2*\xots);
+  \coordinate (M31-) at (0, -2*\xots - \eots);
+  \coordinate (M31+) at (0, -\xots + \eots);
+  \coordinate (M32-) at (\plytawidth, -2*\xots - \eots);
+  \coordinate (M32+) at (\plytawidth, -\xots + \eots);
+  
+  \coordinate (D31+) at (\diagox, -2*\xots + \diagox);
+  \coordinate (D31-) at (- \diagox, -2*\xots - \diagox);
+  \coordinate (D32+) at (\plytawidth + \diagox, -2*\xots + \diagox);
+  \coordinate (D32-) at (\plytawidth - \diagox, -2*\xots - \diagox); 
+  
+  \draw [thin] (M31) -- node [above] {\small{1000}} (M32) (M31-) -- (M31+) (M32-) -- (M32+);
+  \draw [ultra thick] (D31-) -- (D31+) (D32-) -- (D32+);
+  
+  \coordinate (M41) at (\plytawidth + 2*\xots, -\eots);
+  \coordinate (M42) at (\plytawidth + 2*\xots, \eots + \plytaheight);
+  \coordinate (M41-) at (\plytawidth + \eots, 0);
+  \coordinate (M41+) at (\plytawidth + 4*\xots - \eots, 0);
+  \coordinate (M42-) at (\plytawidth + \eots, \plytaheight);
+  \coordinate (M42+) at (\plytawidth + 4*\xots - \eots, \plytaheight);
+  
+  \coordinate (D41+) at (\plytawidth + 2*\xots + \diagox,  - \diagox);
+  \coordinate (D41-) at (\plytawidth + 2*\xots - \diagox, \diagox);
+  \coordinate (D42+) at (\plytawidth + 2*\xots + \diagox, \plytaheight - \diagox);
+  \coordinate (D42-) at (\plytawidth + 2*\xots - \diagox, \plytaheight + \diagox); 
+  
+  \draw [thin] (M41) -- node [rotate=90, above] {\small{500}} (M42) (M41-) -- (M41+) (M42-) -- (M42+);
+  \draw [ultra thick] (D41-) -- (D41+) (D42-) -- (D42+);
+  
+  \coordinate (RL1) at (\plytawidth + 4*\xots, 0);
+  \coordinate (RL2) at (\plytawidth + 4*\xots + \plytalength, 0);
+  \coordinate (RL3) at (\plytawidth + 4*\xots + \plytalength, \plytaheight);
+  \coordinate (RL4) at (\plytawidth + 4*\xots,\plytaheight);
+  
+  \draw [thick] (RL1) -- (RL2) -- (RL3) -- (RL4) -- (RL1);
+
+  \coordinate (YY11-) at (\plytawidth + 4*\xots + \eots, \hots);
+  \coordinate (YY11+) at (\plytawidth + 4*\xots + \eots, \plytaheight - \eots); 
+  \coordinate (YY12-) at (\plytawidth + 4*\xots + \plytalength - \eots, \hots);
+  \coordinate (YY12+) at (\plytawidth + 4*\xots + \plytalength - \eots, \plytaheight - \eots); 
+  
+ \draw [line width = 0.06cm*\scaler] (YY11-) -- (YY11+) (YY12-) -- (YY12+);
+ \draw [fill] (\plytawidth + 4*\xots + \wots, \hots) circle [radius=0.11cm*\scaler];
+ \draw [fill] (\plytawidth + 4*\xots + \plytalength - \wots, \hots) circle [radius=0.11cm*\scaler];
+ \draw [fill] (\plytawidth + 4*\xots + \wots, 2*\hots) circle [radius=0.11cm*\scaler];
+ \draw [fill] (\plytawidth + 4*\xots + \plytalength - \wots, 2*\hots) circle [radius=0.11cm*\scaler];
+ \draw [fill] (\plytawidth + 4*\xots + \vots, \plytaheight - \eots - 2 * \prutdisty) circle [radius=0.04cm*\scaler];
+ \draw [fill] (\plytawidth + 4*\xots + \plytalength - \vots, \plytaheight - \eots - 2 * \prutdisty) circle [radius=0.04cm*\scaler];
+ \draw [fill] (\plytawidth + 4*\xots + \vots, \plytaheight - \eots - \prutdisty) circle [radius=0.04cm*\scaler];
+ \draw [fill] (\plytawidth + 4*\xots + \plytalength - \vots, \plytaheight - \eots - \prutdisty) circle [radius=0.04cm*\scaler];
+ \draw [fill] (\plytawidth + 4*\xots + \vots/2 + \eots/2, \plytaheight - \eots) circle [radius=0.06cm*\scaler];
+ \draw [fill] (\plytawidth + 4*\xots + \plytalength - \vots/2 - \eots/2, \plytaheight - \eots) circle [radius=0.06cm*\scaler];
+
+  \coordinate (M61) at (\plytawidth + 4*\xots +  - \eots, -2*\xots);
+  \coordinate (M62) at (\plytawidth + 4*\xots + \plytalength + \eots, -2*\xots);
+  \coordinate (M61-) at (\plytawidth + 4*\xots, -2*\xots - \eots);
+  \coordinate (M61+) at (\plytawidth + 4*\xots, -\xots + \eots);
+  \coordinate (M62-) at (\plytawidth + 4*\xots + \plytalength, -2*\xots - \eots);
+  \coordinate (M62+) at (\plytawidth + 4*\xots + \plytalength, -\xots + \eots);
+  
+  \coordinate (D61+) at (\plytawidth + 4*\xots + \diagox, -2*\xots + \diagox);
+  \coordinate (D61-) at (\plytawidth + 4*\xots - \diagox, -2*\xots - \diagox);
+  \coordinate (D62+) at (\plytawidth + 4*\xots + \plytalength + \diagox, -2*\xots + \diagox);
+  \coordinate (D62-) at (\plytawidth + 4*\xots + \plytalength - \diagox, -2*\xots - \diagox); 
+  
+  \draw [thin] (M61) -- node [above] {\small{100}} (M62) (M61-) -- (M61+) (M62-) -- (M62+);
+  \draw [ultra thick] (D61-) -- (D61+) (D62-) -- (D62+);
+  
+  \coordinate (M71) at (\plytawidth + 4*\xots , \plytaheight + \xots);
+  \coordinate (M72) at (\plytawidth + 4*\xots + \plytalength, \plytaheight + \xots);
+  \coordinate (M71-) at (\plytawidth + 4*\xots + \eots, \plytaheight + \xots + \eots);
+  \coordinate (M71+) at (\plytawidth + 4*\xots + \eots, \plytaheight);
+  \coordinate (M72-) at (\plytawidth + 4*\xots + \plytalength - \eots, \plytaheight + \xots + \eots);
+  \coordinate (M72+) at (\plytawidth + 4*\xots + \plytalength - \eots, \plytaheight);
+  
+  \coordinate (D71+) at (\plytawidth + 4*\xots + \eots + \diagox, \plytaheight + \xots + \diagox);
+  \coordinate (D71-) at (\plytawidth + 4*\xots + \eots - \diagox, \plytaheight + \xots - \diagox);
+  \coordinate (D72+) at (\plytawidth + 4*\xots + \plytalength - \eots + \diagox, \plytaheight + \xots + \diagox);
+  \coordinate (D72-) at (\plytawidth + 4*\xots + \plytalength - \eots - \diagox, \plytaheight + \xots - \diagox); 
+  
+  \draw [thin] (M71) -- node [above] {\small{64}} (M72) (M71-) -- (M71+) (M72-) -- (M72+);
+  \draw [ultra thick] (D71-) -- (D71+) (D72-) -- (D72+);
+
+\end{tikzpicture}

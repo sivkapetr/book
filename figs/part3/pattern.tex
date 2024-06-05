@@ -1,0 +1,108 @@
+\newcommand{\scaler}{0.15}
+\newcommand{\radius}{10cm*\scaler}
+\newcommand{\width}{2cm*\scaler}
+\newcommand{\diff}{2cm*\scaler}
+
+
+\begin{tikzpicture}
+\draw[brown,fill=brown] (\radius,\radius) circle (\radius); 
+
+\draw[brown,fill=brown] (3*\radius+\diff,\radius) circle (\radius); 
+
+\draw[brown,fill=brown] (5*\radius+2*\diff,\radius) circle (\radius); 
+
+\draw [brown, fill=yellow!20!white] (2*\width, \radius-4*\width) rectangle (2*\radius-2*\width, \radius-3*\width);
+
+\draw [brown, fill=yellow!20!white] (\width, \radius-3*\width) rectangle (2*\radius-\width, \radius-2*\width);
+
+\draw [brown, fill=yellow!20!white] (0.417*\width, \radius-2*\width) rectangle (2*\radius-0.417*\width, \radius-\width);
+
+\draw [brown, fill=yellow!20!white] (0.101*\width, \radius-\width) rectangle (2*\radius-0.101*\width, \radius);
+
+\draw [brown, fill=yellow!20!white] (0.101*\width, \radius) rectangle (2*\radius-0.101*\width, \radius+\width);
+
+\draw [brown, fill=yellow!20!white] (0.417*\width, \radius+\width) rectangle (2*\radius-0.417*\width, \radius+2*\width);
+
+\draw [brown, fill=yellow!20!white] (\width, \radius+2*\width) rectangle (2*\radius-\width, \radius+3*\width);
+
+\draw [brown, fill=yellow!20!white] (2*\width, \radius+3*\width) rectangle (2*\radius-2*\width, \radius+4*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={45:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius - \width/2, \radius+\width/2) rectangle (2*\radius+\diff+\radius + \width/2, 2*\radius-0.025*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={135:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius - \width/2, \radius+\width/2) rectangle (2*\radius+\diff+\radius + \width/2, 2*\radius-0.025*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={225:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius - \width/2, \radius+\width/2) rectangle (2*\radius+\diff+\radius + \width/2, 2*\radius-0.025*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={315:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius - \width/2, \radius+\width/2) rectangle (2*\radius+\diff+\radius + \width/2, 2*\radius-0.025*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={45:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius + \width/2, \radius+3*\width/2) rectangle (2*\radius+\diff+\radius + 3*\width/2, 2*\radius-0.23*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={45:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius + 3*\width/2, \radius+5*\width/2) rectangle (2*\radius+\diff+\radius + 5*\width/2, 2*\radius-0.67*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={45:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius - 3*\width/2, \radius+3*\width/2) rectangle (2*\radius+\diff+\radius - \width/2, 2*\radius-0.23*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={45:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius - 5*\width/2, \radius+5*\width/2) rectangle (2*\radius+\diff+\radius - 3*\width/2, 2*\radius-0.67*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={135:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius + \width/2, \radius+3*\width/2) rectangle (2*\radius+\diff+\radius + 3*\width/2, 2*\radius-0.23*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={135:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius + 3*\width/2, \radius+5*\width/2) rectangle (2*\radius+\diff+\radius + 5*\width/2, 2*\radius-0.67*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={135:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius - 3*\width/2, \radius+3*\width/2) rectangle (2*\radius+\diff+\radius - \width/2, 2*\radius-0.23*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={135:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius - 5*\width/2, \radius+5*\width/2) rectangle (2*\radius+\diff+\radius - 3*\width/2, 2*\radius-0.67*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={225:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius + \width/2, \radius+3*\width/2) rectangle (2*\radius+\diff+\radius + 3*\width/2, 2*\radius-0.23*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={225:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius + 3*\width/2, \radius+5*\width/2) rectangle (2*\radius+\diff+\radius + 5*\width/2, 2*\radius-0.67*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={225:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius - 3*\width/2, \radius+3*\width/2) rectangle (2*\radius+\diff+\radius - \width/2, 2*\radius-0.23*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={225:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius - 5*\width/2, \radius+5*\width/2) rectangle (2*\radius+\diff+\radius - 3*\width/2, 2*\radius-0.67*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={315:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius + \width/2, \radius+3*\width/2) rectangle (2*\radius+\diff+\radius + 3*\width/2, 2*\radius-0.23*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={315:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius + 3*\width/2, \radius+5*\width/2) rectangle (2*\radius+\diff+\radius + 5*\width/2, 2*\radius-0.67*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={315:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius - 3*\width/2, \radius+3*\width/2) rectangle (2*\radius+\diff+\radius - \width/2, 2*\radius-0.23*\width);
+
+\draw[brown, fill=yellow!20!white,rotate around={315:(3*\radius+\diff, \radius)}](2*\radius+\diff+\radius - 5*\width/2, \radius+5*\width/2) rectangle (2*\radius+\diff+\radius - 3*\width/2, 2*\radius-0.67*\width);
+
+
+
+\draw [brown, fill=yellow!20!white] (4*\radius+2*\diff+0.025*\width, \radius-\width/2) rectangle (4*\radius+2*\diff+\radius-\width/2, \radius+\width/2);
+
+\draw [brown, fill=yellow!20!white,rotate around={180:(5*\radius+2*\diff, \radius)}] (4*\radius+2*\diff+0.025*\width, \radius-\width/2) rectangle (4*\radius+2*\diff+\radius-\width/2, \radius+\width/2);
+
+\draw [brown, fill=yellow!20!white] (4*\radius+2*\diff+\radius-\width/2, \radius) rectangle (4*\radius+2*\diff+\radius+\width/2, 2*\radius-0.025*\width);
+
+\draw [brown, fill=yellow!20!white,rotate around={180:(5*\radius+2*\diff, \radius)}] (4*\radius+2*\diff+\radius-\width/2, \radius) rectangle (4*\radius+2*\diff+\radius+\width/2, 2*\radius-0.025*\width);
+
+\draw [brown, fill=yellow!20!white,rotate around={45:(5*\radius+2*\diff, \radius)}] (4*\radius+2*\diff+\radius-\width/2, \radius+1.207*\width) rectangle (4*\radius+2*\diff+\radius+\width/2, 2*\radius-0.025*\width);
+
+\draw [brown, fill=yellow!20!white,rotate around={135:(5*\radius+2*\diff, \radius)}] (4*\radius+2*\diff+\radius-\width/2, \radius+1.207*\width) rectangle (4*\radius+2*\diff+\radius+\width/2, 2*\radius-0.025*\width);
+
+\draw [brown, fill=yellow!20!white,rotate around={225:(5*\radius+2*\diff, \radius)}] (4*\radius+2*\diff+\radius-\width/2, \radius+1.207*\width) rectangle (4*\radius+2*\diff+\radius+\width/2, 2*\radius-0.025*\width);
+
+\draw [brown, fill=yellow!20!white,rotate around={315:(5*\radius+2*\diff, \radius)}] (4*\radius+2*\diff+\radius-\width/2, \radius+1.207*\width) rectangle (4*\radius+2*\diff+\radius+\width/2, 2*\radius-0.025*\width);
+
+\draw [brown, fill=yellow!20!white,rotate around={22.5:(5*\radius+2*\diff, \radius)}] (4*\radius+2*\diff+\radius-\width/2, \radius+2.5*\width) rectangle (4*\radius+2*\diff+\radius+\width/2, 2*\radius-0.025*\width);
+
+\draw [brown, fill=yellow!20!white,rotate around={67.5:(5*\radius+2*\diff, \radius)}] (4*\radius+2*\diff+\radius-\width/2, \radius+2.5*\width) rectangle (4*\radius+2*\diff+\radius+\width/2, 2*\radius-0.025*\width);
+
+\draw [brown, fill=yellow!20!white,rotate around={112.5:(5*\radius+2*\diff, \radius)}] (4*\radius+2*\diff+\radius-\width/2, \radius+2.5*\width) rectangle (4*\radius+2*\diff+\radius+\width/2, 2*\radius-0.025*\width);
+
+\draw [brown, fill=yellow!20!white,rotate around={157.5:(5*\radius+2*\diff, \radius)}] (4*\radius+2*\diff+\radius-\width/2, \radius+2.5*\width) rectangle (4*\radius+2*\diff+\radius+\width/2, 2*\radius-0.025*\width);
+
+\draw [brown, fill=yellow!20!white,rotate around={202.5:(5*\radius+2*\diff, \radius)}] (4*\radius+2*\diff+\radius-\width/2, \radius+2.5*\width) rectangle (4*\radius+2*\diff+\radius+\width/2, 2*\radius-0.025*\width);
+
+\draw [brown, fill=yellow!20!white,rotate around={247.5:(5*\radius+2*\diff, \radius)}] (4*\radius+2*\diff+\radius-\width/2, \radius+2.5*\width) rectangle (4*\radius+2*\diff+\radius+\width/2, 2*\radius-0.025*\width);
+
+\draw [brown, fill=yellow!20!white,rotate around={292.5:(5*\radius+2*\diff, \radius)}] (4*\radius+2*\diff+\radius-\width/2, \radius+2.5*\width) rectangle (4*\radius+2*\diff+\radius+\width/2, 2*\radius-0.025*\width);
+
+\draw [brown, fill=yellow!20!white,rotate around={337.5:(5*\radius+2*\diff, \radius)}] (4*\radius+2*\diff+\radius-\width/2, \radius+2.5*\width) rectangle (4*\radius+2*\diff+\radius+\width/2, 2*\radius-0.025*\width);
+
+  \node at (1.5*\scaler/0.15, -0.3*\scaler/0.15) {$a$};
+  \node at (4.8*\scaler/0.15, -0.3*\scaler/0.15) {$b$};
+  \node at (8.1*\scaler/0.15, -0.3*\scaler/0.15) {$c$};
+
+\end{tikzpicture}

@@ -1,0 +1,24 @@
+\usetikzlibrary{calc}
+\begin{tikzpicture}[thick, scale = 0.16]
+\draw (0, 10) -- (0, 20) (10, 0) -- (20, 0);
+\draw (0, 10) arc (90:0:10) (0, 20) arc (90:0:20);
+\draw[white!70!black] (15, 25) -- (15, 35) (25, 15) -- (35, 15);
+\draw[white!70!black] (15, 25) arc (90:0:10);
+\draw (15, 35) arc (90:0:20);
+\draw[white!70!black] (0, 10) -- (15, 25) (10, 0) -- (25, 15);
+\draw[thick] (0, 20) -- (15, 35) (20, 0) -- (35, 15);
+
+\node at (10.607, 10.607) (c) {$\Gamma_1$};
+\node[white!70!black] at (25.607, 25.607) (c) {$\Gamma_2$};
+\node[white!70!black] at (7.5, 22.5) (c) {$\Gamma_3$};
+\node[white!70!black] at (22.5, 7.5) (c) {$\Gamma_4$};
+\node[white!70!black] at (15, 15) (c) {$\Gamma_5$};
+\node at (21.3, 21.3) (c) {$\Gamma_6$};
+\draw (10, 0) node[circle,fill,inner sep=2pt] {};
+\node[below] at (10, 0) (c) {$A$};
+\node[below] at (0, 0) (c) {$0$};
+\draw[->] (0, 0) -- (0, 3) node [above] {$x_2$};
+\draw[->] (0, 0) -- (3, 0) node [right] {$x_1$};
+\draw[->] (0, 0) -- (2.4, 2.4) node[above right] {$x_3$};
+
+\end{tikzpicture}

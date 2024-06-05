@@ -1,0 +1,35 @@
+\newcommand{\scaler}{0.6}
+\newcommand{\plytawidth}{10cm*\scaler}
+\newcommand{\plytalength}{2.5cm*\scaler}
+\newcommand{\plytaheight}{5cm*\scaler}
+\newcommand{\railcoor}{2cm*\scaler}
+\newcommand{\railwidth}{0.4cm*\scaler}
+\newcommand{\railheight}{0.6cm*\scaler}
+\newcommand{\xots}{0.5cm*\scaler}
+\newcommand{\eots}{0.15cm*\scaler}
+\newcommand{\diagox}{0.1cm*\scaler}
+\newcommand{\pressx}{1cm*\scaler}
+\newcommand{\pressy}{0.5cm*\scaler}
+\newcommand{\diagx}{0.15cm*\scaler}
+\newcommand{\diagy}{0.15cm*\scaler}
+\newcommand{\stalplytax}{0.2cm*\scaler}
+\newcommand{\stalplytay}{1.5cm*\scaler}
+\newcommand{\arrowlength}{0.6cm*\scaler}
+\newcommand{\newgeom}{5cm*\scaler}
+\newcommand{\newgeomx}{8cm*\scaler}
+\begin{tikzpicture}
+  \coordinate (A3) at (0, \pressy);
+  \coordinate (B3) at (0, \plytalength);
+  \coordinate (C3) at (\plytawidth/2, \pressy);
+  \coordinate (D3) at (\plytawidth/2, \plytalength);
+  \coordinate (E3) at (-\railcoor,  0);
+  \coordinate (F3) at (-\railcoor, \plytalength);
+  \coordinate (H3) at (- \pressy,  0;
+  \coordinate (G3) at (\plytawidth + \pressy,  0);
+  \coordinate (T3) at (- \pressy,  0);
+  \coordinate (Y3) at (\plytawidth, \pressy);
+   
+  \draw [ultra thick, fill=gray] (C3) -- (A3) -- (B3) -- (D3);
+  \draw [ultra thick] (E3) -- (H3);
+  \draw [ultra thick] (T3) arc [radius=\pressy, start angle=270, end angle= 360];
+\end{tikzpicture}

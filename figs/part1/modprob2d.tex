@@ -1,0 +1,10 @@
+\begin{tikzpicture}[thick, scale = 0.11]
+\draw [fill=gray!40!white] (0, 0) -- (50, 0) -- (50, 50) -- (0, 50) -- cycle;
+\draw [fill=white] (25, 25) ellipse (6 and 2);
+\foreach \x in {0,...,25}{
+	\draw[->] (2*\x, 0) -- (2*\x, -3);
+	\draw[->] (2*\x, 50) -- (2*\x, 53);
+	\draw[->] (0, 2*\x) -- (-3, 2*\x);
+	\draw[->] (50, 2*\x) -- (53, 2*\x);}
+
+\end{tikzpicture}

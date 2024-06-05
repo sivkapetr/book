@@ -1,0 +1,120 @@
+# Compile this form with FFC: ffc -l dolfin -p linear Temperature.ufl
+
+cell = triangle
+
+PT = FiniteElement("Lagrange", cell, 1)
+PU = VectorElement("Lagrange", cell, 2)
+
+elementT = VectorElement("Quadrature", cell, 2, 9)
+elementS = VectorElement("Quadrature", cell, 2, 3)
+
+t = Coefficient(elementT)
+s = Coefficient(elementS)
+
+# T
+
+T = TrialFunction(PT)
+p = TrialFunction(PT)
+q = TestFunction(PT)
+
+u = TrialFunction(PU)
+v = TestFunction(PU)
+
+pn = PrevFunction(PT)
+Tn = PrevFunction(PT)
+
+pnn = Coefficient(PT)
+Tnn = Coefficient(PT)
+
+dt     = Constant(cell)
+
+m      = Constant(cell)
+croS   = Constant(cell)
+croL   = Constant(cell)
+kS     = Constant(cell)
+kL     = Constant(cell)
+rhoL   = Constant(cell)
+T0     = Constant(cell)
+p0     = Constant(cell)
+TAir   = Constant(cell)
+Th     = Constant(cell)
+alpha  = Constant(cell)
+alpha_h  = Constant(cell)
+
+delta  = Constant(cell)
+
+betaS  = Constant(cell)
+betaL  = Constant(cell)
+E      = Constant(cell)
+nu     = Constant(cell)
+
+biotS   = Constant(cell)
+biotL   = Constant(cell)
+M      = Constant(cell)
+
+kappaL = Constant(cell)
+kappaS = Constant(cell)
+
+theta = Constant(cell)
+
+disp  = Coefficient(PU)
+dispn = Coefficient(PU)
+
+temp  = Coefficient(PT)
+pres  = Coefficient(PT)
+
+f     = Coefficient(PU)
+
+
+lmbda = E*nu/(1+nu)/(1-2*nu)
+mu    = E/2/(1+nu)
+
+phi  = conditional(gt(Tn, delta), 1.0, conditional(lt(Tn, -delta), 0.0, (Tn+delta)/(delta+delta) ))
+dphi = conditional(gt(Tn, delta), 0.0, conditional(lt(Tn, -delta), 0.0,  1.0/(delta+delta) ))
+
+beta = betaS + phi*(betaL - betaS);
+k   = kS   + phi*(kL - kS);
+cro = croS + phi*(croL - croS);
+
+T_theta = theta*(T-Tn) + (1-theta)*(Tn-Tnn)
+
+F_T = (cro + m*rhoL*dphi)*T_theta/dt*q*dx(1)\
+    + beta*T0*(3*lmbda + 2*mu)*(div(disp) - div(dispn))/dt*q*dx(1) \
+    + inner(k*grad(T), grad(q))*dx(1)\
+    + alpha*(T-TAir)*q*ds(3)\
+    + alpha_h*(T-Th)*q*ds(1)
+
+a_T = lhs(F_T)
+L_T = rhs(F_T)
+
+#p
+
+kappa = kappaS + phi*(kappaL - kappaS);
+biot = biotS + phi*(biotL - biotS);
+
+p_theta    = theta*(p-pn) + (1-theta)*(pn-pnn)
+
+F_p = 1/M*p_theta/dt*q*dx(1) \
+    + biot*(div(disp) - div(dispn))/dt*q*dx(1)  \
+    + inner(kappa * grad(p), grad(q))*dx(1)
+
+a_p = lhs(F_p)
+L_p = rhs(F_p)
+
+# u
+
+I = Identity(cell.d)
+
+def eps(u):	
+	return as_vector([u[i].dx(i) for i in range(2)] + [u[i].dx(j) + u[j].dx(i) for i, j in [(0, 1)]])
+
+def sigmap(s):
+	return as_matrix([[s[0], s[2]], [s[2], s[1]]])
+
+def tangent(t):
+  return as_matrix([[t[i*3 + j] for j in range(3)] for i in range(3)])
+
+a_u = inner(eps(v), dot(tangent(t), eps(u)) )*dx
+L_u = inner(grad(v), sigmap(s))*dx + inner(f,v)*ds(1) + beta*(3*lmbda + 2*mu)*inner(grad(temp), v)*dx + biot*inner(grad(pres), v)*dx
+
+forms = [a_T, L_T, a_p, L_p, a_u, L_u]

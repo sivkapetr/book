@@ -1,0 +1,119 @@
+#!/usr/bin/env python
+cell = tetrahedron
+element = VectorElement("Lagrange", cell, 2)
+element1 = FiniteElement("Lagrange", cell, 1)
+
+u = TrialFunction(element)
+v = TestFunction(element)
+f1 = Coefficient(element)
+f2 = Coefficient(element)
+f3 = Coefficient(element)
+
+mu1    = Constant(cell)
+lmbda1 = Constant(cell)
+
+s11    = Constant(cell)
+s22    = Constant(cell)
+s33    = Constant(cell)
+s44    = Constant(cell)
+s55    = Constant(cell)
+s66    = Constant(cell)
+
+x = cell.x
+n = cell.n
+h = Constant(cell)
+d = Constant(cell)
+r1 = Constant(cell)
+r2 = Constant(cell)
+
+sigma_ta = Constant(cell)
+sigma_0 = Constant(cell)
+
+#Coefficients
+E_a = 11e9 
+E_r = 0.7e9
+E_t = 0.35e9
+G_ar = 1.14e9
+G_at = 0.71e9
+G_rt = 0.33e9
+mu_tr = 0.62
+mu_rt = 1.24
+mu_at = 1.1
+mu_ta = 0.035
+mu_ra = 0.036
+mu_ar = 0.56
+#Elastic tensor elements
+D = (1 - mu_tr*mu_rt - mu_at*mu_ta - mu_ra*mu_ar - 2*mu_tr*mu_ra*mu_at)/(E_a*E_t*E_r)
+C_11 = (1 - mu_at*mu_ta)/(D*E_a*E_t)
+C_22 = (1 - mu_ar*mu_ra)/(D*E_a*E_r)
+C_33 = (1 - mu_tr*mu_rt)/(D*E_r*E_t)
+C_12 = (mu_tr + mu_ar*mu_ta)/(D*E_a*E_t)
+C_13 = (mu_ar + mu_tr*mu_at)/(D*E_a*E_t)
+C_23 = (mu_at + mu_rt*mu_ar)/(D*E_r*E_a)
+C_44 = G_rt
+C_55 = G_ar
+C_66 = G_at
+
+def epsilon(v):
+    return 0.5*(grad(v) + grad(v).T)
+
+def cosx(x): 
+    return ((x[0]-h)/sqrt((x[0]-h)**2+(x[1]+d)**2))
+
+def sinx(x): 
+    return ((x[1]+d)/sqrt((x[0]-h)**2+(x[1]+d)**2))
+
+def transx(x):
+    return as_matrix([[cosx(x), -sinx(x), 0],
+                      [sinx(x),  cosx(x), 0],
+                      [      0,        0, 1]])
+
+def epsx(u, x):
+    return (transx(x).T*epsilon(u)*transx(x))
+
+def eps1(u, x, h, d):
+    return as_vector([epsx(u,x)[0, 0], epsx(u,x)[1, 1], epsx(u,x)[2, 2], epsx(u,x)[0, 1], epsx(u,x)[0, 2], epsx(u,x)[1, 2]])
+
+def eps(u, x, h, d):
+    return as_vector([(u[0].dx(0)*(x[0]-h)*(x[0]-h) + (u[0].dx(1) + u[1].dx(0))*(x[0]-h)*(x[1]+d) + u[1].dx(1)*(x[1]+d)*(x[1]+d))/((x[0]-h)*(x[0]-h)+(x[1]+d)*(x[1]+d)),
+                      (u[0].dx(0)*(x[1]+d)*(x[1]+d) - (u[0].dx(1) + u[1].dx(0))*(x[0]-h)*(x[1]+d) + u[1].dx(1)*(x[0]-h)*(x[0]-h))/((x[0]-h)*(x[0]-h)+(x[1]+d)*(x[1]+d)),
+                      (u[2].dx(2)),
+                      (-u[0].dx(0)*(x[0]-h)*(x[1]+d) + (u[0].dx(1) + u[1].dx(0))/2*((x[0]-h)*(x[0]-h) - (x[1]+d)*(x[1]+d)) + u[1].dx(1)*(x[0]-h)*(x[1]+d))/((x[0]-h)*(x[0]-h)+(x[1]+d)*(x[1]+d)),
+                      ((u[0].dx(2) + u[2].dx(0))/2*(x[0]-h) + (u[1].dx(2) + u[2].dx(1))/2*(x[1]+d))/sqrt((x[0]-h)*(x[0]-h)+(x[1]+d)*(x[1]+d)),
+                      (-(u[0].dx(2) + u[2].dx(0))/2*(x[1]+d) + (u[1].dx(2) + u[2].dx(1))/2*(x[0]-h))/sqrt((x[0]-h)*(x[0]-h)+(x[1]+d)*(x[1]+d))])
+
+def elas(C_11, C_22, C_33, C_12, C_13, C_23, C_44, C_55, C_66):
+    return as_matrix([[C_11, C_12, C_13,    0,    0,    0], 
+                      [C_12, C_22, C_23,    0,    0,    0], 
+                      [C_13, C_23, C_33,    0,    0,    0], 
+                      [   0,    0,    0, C_44,    0,    0],
+                      [   0,    0,    0,    0, C_55,    0],
+                      [   0,    0,    0,    0,    0, C_66]])
+
+
+
+def instrx(x, h, d, r1, r2):
+    return as_matrix([[-sigma_ta*ln(sqrt((x[0]-h)*(x[0]-h) + (x[1]+d)*(x[1]+d))/(r1+(r2-r1)/5*x[2])), 0, 0],
+                      [0, -sigma_ta*(1+ln(sqrt((x[0]-h)*(x[0]-h) + (x[1]+d)*(x[1]+d))/(r1+(r2-r1)/5*x[2]))), 0],
+                      [0, 0, sigma_0*(1-8*((x[0]-h)*(x[0]-h) + (x[1]+d)*(x[1]+d))**7/((r1+(r2-r1)/5*x[2])**14) -7*sqrt((x[0]-h)*(x[0]-h) + (x[1]+d)*(x[1]+d))/(r1+(r2-r1)/5*x[2]))]]) # 
+
+
+
+def sigma1(v):
+    return 2.0*mu1*epsilon(v) + lmbda1*tr(epsilon(v))*Identity(v.cell().d)
+
+def instr(x, h, d, r1, r2):
+    return transx(x)*instrx(x, h, d, r1, r2)*transx(x).T
+
+a = inner(eps(v, x, h, d), dot(elas(C_11, C_22, C_33, C_12, C_13, C_23, C_44, C_55, C_66), eps(u, x, h, d)))*dx
+L = inner(v, dot(instr(x, h, d, r1, r2), n))*ds
+
+element_s = TensorElement("Discontinuous Lagrange", cell, 0)
+s = TrialFunction(element_s)
+w      = TestFunction(element_s)
+disp   = Coefficient(element)
+
+a_s = inner(s, w)*dx
+L_s = inner(sigma1(disp), w)*dx
+
+forms = [a, L, a_s, L_s]
